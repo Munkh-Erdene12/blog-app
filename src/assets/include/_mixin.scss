@@ -1,0 +1,9 @@
+@mixin centerlize($val) {
+  display: flex;
+  justify-content: $val;
+  align-items: center;
+}
+@mixin size($val, $val1) {
+  width: $val;
+  height: $val1;
+}

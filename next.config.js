@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  MONGODB_URL: process.env.MONGODB_URL,
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

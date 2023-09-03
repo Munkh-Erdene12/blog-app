@@ -1,0 +1,219 @@
+header {
+  @include size(100%, 60px);
+  padding: 0 20px;
+  &.sticky {
+    position: sticky;
+    left: 0;
+    z-index: 999;
+    top: 0;
+    background: white;
+    box-shadow: 2px 8px 33px 0px rgba(132, 132, 132, 0.75);
+  }
+  @include centerlize(space-between);
+  .logo {
+    @include size(25%, 60px);
+    @include centerlize(left);
+  }
+  .menu {
+    @include size(20%, 60px);
+    @include centerlize(space-between);
+
+    div {
+      cursor: pointer;
+      svg {
+        @include size(15px, 15px);
+        &:hover {
+          color: $main_color;
+        }
+      }
+      a {
+        font-size: 14px;
+        color: $main_color1;
+        font-weight: 400;
+        margin: 0 5px;
+        &:hover {
+          color: $main_color;
+        }
+      }
+    }
+  }
+  .navigation {
+    @include size(40%, 60px);
+    @include centerlize(space-between);
+    li {
+      a {
+        text-transform: uppercase;
+        color: $main_color1;
+        font-size: 14px;
+        font-weight: 400;
+        &.active {
+          color: $main_color;
+        }
+      }
+      &:hover .banner {
+        // opacity: 1;
+      }
+      .banner {
+        opacity: 0;
+        @include size(65%, 300px);
+        position: absolute;
+        background: white;
+        box-shadow: 0px 6px 16px -7px rgba(191, 191, 191, 0.75);
+        top: calc(300px - 70px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .banner__child {
+          @include size(100%, 100%);
+          border-top: 5px solid $main_color;
+          display: flex;
+          justify-content: space-between;
+          padding: 20px 10px;
+          .left {
+            @include size(30%, 200);
+            .item {
+              // background: brown;
+
+              @include size(100%, 15%);
+              margin-bottom: 10px;
+              @include centerlize(left);
+              padding-left: 15px;
+              text-transform: uppercase;
+              transition: all 0.3s;
+              font-size: 12px;
+              &:not(.active):hover {
+                color: $main_color;
+                border-top: 1px dashed $main_color2;
+                border-bottom: 1px dashed $main_color2;
+              }
+              &.active {
+                color: $main_color;
+                border-top: 1px dashed $main_color2;
+                border-bottom: 1px dashed $main_color2;
+              }
+            }
+          }
+          .right {
+            @include size(630px, 200);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .right__child {
+              display: flex;
+              justify-content: space-between;
+              @include size(100%, 178px);
+              .shortContent {
+                @include size(24%, 100%);
+                .content {
+                  @include size(100%, 100%);
+                  background: #000;
+                }
+                .text {
+                  text-align: center;
+                  margin-top: 20px;
+                  @include size(100%, 66px);
+                  .title {
+                    font-size: 16px;
+                    font-weight: 700;
+                  }
+                  .desc {
+                    color: #9e9e9e;
+                    font-weight: 300;
+                    font-size: 11px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.wrapper {
+  @include size(100%, 140vh);
+  background-image: radial-gradient(#e5e5e5 1.5px, transparent 1.5px);
+  background-size: 17px 17px;
+  background-color: #fff;
+  position: relative;
+  .img {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+    position: relative;
+    background-attachment: fixed;
+  }
+  p.img__children {
+    font-family: "Dancing Script";
+    font-size: 145px;
+    line-height: 1em;
+    color: #fff;
+    position: absolute;
+    left: 550px;
+    opacity: 1;
+    top: 150px;
+    z-index: 9;
+    width: 40%;
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+    max-width: 500px;
+    overflow: hidden;
+    text-align: left;
+    margin-left: -500px;
+  }
+  .item-container {
+    @include size(100%, 50vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 48%;
+    svg {
+      @include size(28px, 28px);
+      cursor: pointer;
+    }
+    .item-content {
+      @include size(28%, 360px);
+      background-color: #fff;
+      margin: 0 20px;
+      padding: 10px;
+      overflow: hidden !important;
+      figure {
+        overflow: hidden;
+        .item__img {
+          @include size(100%, 250px);
+          object-fit: cover;
+          display: block;
+          transition: transform 0.3s ease;
+          background: #000;
+          transform: scale(1);
+          cursor: pointer;
+          &:hover {
+            transition: transform 0.3s ease;
+            transform: scale(1.1);
+          }
+        }
+      }
+      .content-text {
+        @include size(100%, 90px);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        a {
+          color: $main_color1;
+          text-transform: uppercase;
+          font-weight: inherit;
+          font-size: 15px;
+        }
+        .meta-date {
+          p.content-date {
+            font-size: 11px;
+            color: #888c8e;
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+}
