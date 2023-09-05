@@ -1,17 +1,17 @@
 header {
-  @include size(100%, 60px);
+  @include size(100%, 75px);
   padding: 0 20px;
   &.sticky {
-    position: sticky;
+    position: fixed;
     left: 0;
-    z-index: 999;
+    z-index: 9;
     top: 0;
     background: white;
-    box-shadow: 2px 8px 33px 0px rgba(132, 132, 132, 0.75);
+    box-shadow: 2px 6px 53px 0px rgba(206, 206, 206, 0.75);
   }
   @include centerlize(space-between);
   .logo {
-    @include size(25%, 60px);
+    @include size(20%, 60px);
     @include centerlize(left);
   }
   .menu {
@@ -22,14 +22,19 @@ header {
       cursor: pointer;
       svg {
         @include size(15px, 15px);
+        color: $main_color1;
         &:hover {
           color: $main_color;
         }
       }
       a {
-        font-size: 14px;
+        font-family: "Montserrat";
         color: $main_color1;
-        font-weight: 400;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 24px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
         margin: 0 5px;
         &:hover {
           color: $main_color;
@@ -42,26 +47,37 @@ header {
     @include centerlize(space-between);
     li {
       a {
+        font-family: "Montserrat";
+        color: #1a1b1c;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 24px;
         text-transform: uppercase;
-        color: $main_color1;
-        font-size: 14px;
-        font-weight: 400;
+        letter-spacing: 1px;
         &.active {
+          color: $main_color;
+        }
+        &:not(.active):hover {
           color: $main_color;
         }
       }
       &:hover .banner {
-        // opacity: 1;
+        opacity: 1;
+        visibility: visible;
+        height: 300px;
+        display: block;
       }
       .banner {
+        visibility: hidden;
+        // display: none;
         opacity: 0;
         @include size(65%, 300px);
         position: absolute;
         background: white;
         box-shadow: 0px 6px 16px -7px rgba(191, 191, 191, 0.75);
         top: calc(300px - 70px);
-        left: 50%;
         transform: translate(-50%, -50%);
+        left: 50%;
         .banner__child {
           @include size(100%, 100%);
           border-top: 5px solid $main_color;
@@ -132,9 +148,9 @@ header {
 }
 .wrapper {
   @include size(100%, 140vh);
-  background-image: radial-gradient(#e5e5e5 1.5px, transparent 1.5px);
-  background-size: 17px 17px;
-  background-color: #fff;
+  background-image: radial-gradient(#e5e5e5 1px, transparent 1px);
+  background-size: 10px 10px;
+  background-color: #ffffff;
   position: relative;
   .img {
     width: 100%;
@@ -173,19 +189,20 @@ header {
       cursor: pointer;
     }
     .item-content {
-      @include size(28%, 360px);
+      @include size(390px, 378px);
       background-color: #fff;
       margin: 0 20px;
       padding: 10px;
       overflow: hidden !important;
+      box-shadow: 2px 2px 27px 0px rgba(209, 209, 209, 0.75);
+
       figure {
         overflow: hidden;
         .item__img {
-          @include size(100%, 250px);
+          @include size(100%, 269px);
           object-fit: cover;
           display: block;
           transition: transform 0.3s ease;
-          background: #000;
           transform: scale(1);
           cursor: pointer;
           &:hover {
@@ -205,6 +222,9 @@ header {
           text-transform: uppercase;
           font-weight: inherit;
           font-size: 15px;
+          &:hover {
+            color: $main_color;
+          }
         }
         .meta-date {
           p.content-date {

@@ -1,0 +1,274 @@
+main {
+  @include size(100%, 100vh);
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  .main__left {
+    text-align: center;
+    @include size(70%, 100%);
+
+    figure {
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      &:hover div {
+        opacity: 1;
+        transition: all 0.3s;
+      }
+      div {
+        transition: all 0.3s;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 40px;
+        background: $main_color1;
+        @include size(64px, 66px);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        span {
+          color: white;
+          font-size: 11px;
+        }
+        span.day {
+          font-size: 20px;
+          line-height: 1em;
+          font-weight: 600;
+          margin-bottom: 7px;
+        }
+        span.month {
+          line-height: 1em;
+          text-transform: uppercase;
+        }
+      }
+      .main-img {
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+        transition: all 0.3s;
+        &:hover {
+          transition: all 0.3s;
+
+          transform: scale(1.1);
+        }
+      }
+    }
+    .post--content {
+      margin-bottom: 36px;
+      padding: 0 20px 36px;
+      text-align: center;
+      font-size: 14px;
+      margin-top: 30px;
+      line-height: 1.86em;
+      font-weight: 400;
+      font-family: "Open Sans";
+      color: #1b1c1d;
+    }
+    .action {
+      @include size(100%, 60px);
+      border-top: 1px dashed #bbc4c7;
+      border-bottom: 1px dashed #bbc4c7;
+      @include centerlize(space-between);
+      .meta {
+        @include size(200px, 100%);
+        @include centerlize(left);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-self: unset;
+        justify-content: center;
+        .post-like,
+        .post-view {
+          margin: 0 8px;
+          font-size: 11px;
+          font-family: "Montserrat";
+          text-transform: uppercase;
+          color: #888c8e;
+          letter-spacing: 1px;
+        }
+        .post-like {
+          height: 100%;
+          @include centerlize(center);
+
+          .item-like {
+            height: 100%;
+
+            text-transform: uppercase;
+            @include centerlize(center);
+            a {
+              svg {
+                margin: 0 10px;
+                width: 15px;
+                height: 15px;
+                color: #888c8e;
+                &:hover {
+                  color: $main_color;
+                }
+              }
+            }
+            span {
+              text-transform: uppercase;
+            }
+          }
+        }
+        .post-view {
+          text-transform: uppercase;
+        }
+      }
+      .post-more {
+        @include size(50%, 60px);
+        @include centerlize(center);
+
+        // a {
+        //   display: inline-block;
+        //   position: relative;
+        //   color: #1c1d1f;
+        //   text-align: center;
+        //   height: 27px;
+
+        //   span {
+        //     font-size: 11px;
+        //     font-family: "Montserrat";
+        //     text-transform: uppercase;
+        //     letter-spacing: 1px;
+        //   }
+        //   svg {
+        //     @include size(20px, 20px);
+        //     font-size: 22px;
+        //     line-height: 24px;
+        //     width: auto;
+        //     max-width: 100%;
+        //     overflow: hidden;
+        //     transform: translateX(0px);
+        //     transition: all 0.4s ease-out;
+        //   }
+        // }
+      }
+      .share-button {
+        margin-top: 30px;
+        @include size(100%, 40px);
+        .social-icons {
+          @include size(100%, 100%);
+          ul {
+            height: 100%;
+            @include centerlize(center);
+            li {
+              background: #363438;
+              @include centerlize(center);
+              @include size(35px, 35px);
+              border-radius: 50%;
+              margin: 0 10px;
+              transition: all 0.1s;
+
+              &:hover a {
+                color: $main_color;
+              }
+              a {
+                @include centerlize(center);
+                color: white;
+              }
+            }
+          }
+        }
+      }
+      .shareBox {
+        @include size(200px, 100%);
+        .social-icons {
+          @include size(100%, 100%);
+          ul {
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            @include size(100%, 100%);
+            li {
+              margin: 0 3px;
+              background-color: #d0d0d2;
+              font-size: 14px;
+              @include size(29px, 29px);
+              border-radius: 50%;
+              @include centerlize(center);
+              a {
+                @include size(29px, 29px);
+                @include centerlize(center);
+                border-radius: 50%;
+                &:hover {
+                  background: $main_color1;
+                  border-radius: 50%;
+                }
+
+                svg {
+                  color: #fff;
+                  @include size(15px, 15px);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .main__right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include size(25%, 100%);
+    text-align: center;
+    .profile {
+      margin-top: 30px;
+      @include size(150px, 150px);
+      .profile__img {
+        @include size(100%, 100%);
+      }
+    }
+    .content {
+      margin-top: 20px;
+      font-size: 14px;
+      line-height: 1.85em;
+      width: 85%;
+      font-weight: 200;
+      color: #747679;
+      font-family: "Open Sans", "Helvetica Neue";
+      .signature {
+        font-size: 32px;
+        line-height: 1em;
+        font-family: "Sacramento", cursive;
+        color: #1c1d1f;
+        padding-top: 23px;
+        display: block;
+      }
+    }
+    .border_bottom {
+      width: 100%;
+      margin-top: 40px;
+      border-bottom: 1px dashed #bbc4c7;
+    }
+    .share-button {
+      margin-top: 30px;
+      @include size(100%, 40px);
+      .social-icons {
+        @include size(100%, 100%);
+        ul {
+          height: 100%;
+          @include centerlize(center);
+          li {
+            background: #363438;
+            @include centerlize(center);
+            @include size(35px, 35px);
+            border-radius: 50%;
+            margin: 0 10px;
+            transition: all 0.1s;
+
+            &:hover a {
+              color: $main_color;
+            }
+            a {
+              @include centerlize(center);
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+}

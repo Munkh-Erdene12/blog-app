@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .input-group {
+        position: relative;
+        margin: 20px 0;
+      }
+      label {
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        transform: translateY(-50%);
+        font-size: 16px;
+        padding: 0 5px;
+        pointer-events: none;
+      }
+      input {
+        width: 300px;
+        height: 40px;
+        font-size: 16px;
+        color: #fff;
+        padding: 0 10px;
+        background: transparent;
+        border: 1.2px solid black;
+        border-radius: 5px;
+      }
+      input:focus ~ label,
+      input:valid ~ label {
+        top: 0;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="input-group">
+      <input type="text" required />
+      <label for="">Email</label>
+    </div>
+  </body>
+</html>

@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  MONGODB_URL: process.env.MONGODB_URL,
+  // output: "export",
+  // distDir: "build",
+  // images: {
+  //   unoptimized: true,
+  // },
+  headers: [],
 };
 
 module.exports = nextConfig;
