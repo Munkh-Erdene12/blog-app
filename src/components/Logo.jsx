@@ -9,6 +9,7 @@ export default function Logo() {
         style={{ width: "100%", height: "100%", objectFit: "cover" }}
         width={500}
         height={200}
+        priority
       />
     </div>
   );

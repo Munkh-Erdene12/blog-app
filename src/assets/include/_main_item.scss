@@ -1,8 +1,8 @@
 .main_item_container {
-  @include size(100%, 590px);
+  @include size(100%, auto);
   margin-top: 60px;
   display: grid;
-  grid-template-rows: repeat(4, 540px);
+  grid-template-rows: repeat(2, 540px);
   grid-template-columns: repeat(2, 49%);
   justify-content: space-between;
   gap: 30px;

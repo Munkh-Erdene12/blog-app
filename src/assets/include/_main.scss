@@ -6,6 +6,47 @@ main {
   .main__left {
     text-align: center;
     @include size(70%, 100%);
+    .main-content {
+      @include size(100%, 370px);
+      margin-top: 30px;
+      position: relative;
+      .img {
+        @include size(60%, 100%);
+        overflow: hidden;
+        .img_child {
+          @include size(100%, 100%);
+          object-fit: contain;
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+      .main-content-child {
+        @include size(42%, 62%);
+        box-shadow: 2px 2px 36px 2px rgba(0, 0, 0, 0.08);
+        margin-left: -40px;
+        background-color: #fff;
+        padding: 20px;
+        position: absolute;
+        right: 0;
+        top: 19%;
+        div {
+          p {
+            margin: 0;
+            &:first-child {
+              padding-bottom: 5px;
+            }
+            text-align: left;
+          }
+          h2 {
+            margin: 0;
+            padding-bottom: 5px;
+            text-align: left;
+            font-size: 22px;
+          }
+        }
+      }
+    }
 
     figure {
       overflow: hidden;
@@ -53,6 +94,7 @@ main {
         }
       }
     }
+
     .post--content {
       margin-bottom: 36px;
       padding: 0 20px 36px;
@@ -64,85 +106,191 @@ main {
       font-family: "Open Sans";
       color: #1b1c1d;
     }
-    .action {
-      @include size(100%, 60px);
-      border-top: 1px dashed #bbc4c7;
-      border-bottom: 1px dashed #bbc4c7;
-      @include centerlize(space-between);
-      .meta {
-        @include size(200px, 100%);
-        @include centerlize(left);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        justify-self: unset;
-        justify-content: center;
-        .post-like,
-        .post-view {
-          margin: 0 8px;
-          font-size: 11px;
-          font-family: "Montserrat";
-          text-transform: uppercase;
-          color: #888c8e;
-          letter-spacing: 1px;
-        }
-        .post-like {
-          height: 100%;
-          @include centerlize(center);
+  }
 
-          .item-like {
-            height: 100%;
-
-            text-transform: uppercase;
-            @include centerlize(center);
-            a {
-              svg {
-                margin: 0 10px;
-                width: 15px;
-                height: 15px;
-                color: #888c8e;
-                &:hover {
-                  color: $main_color;
-                }
-              }
-            }
-            span {
-              text-transform: uppercase;
-            }
-          }
-        }
-        .post-view {
-          text-transform: uppercase;
+  .main__right {
+    text-align: center;
+    .treding__banner {
+      @include size(100%, 270px);
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .action_1 {
+        cursor: pointer;
+        @include centerlize(space-between);
+        width: 17%;
+        svg {
+          @include size(20px, 20px);
+          color: $main_color2;
         }
       }
-      .post-more {
-        @include size(50%, 60px);
+      .treding__container {
+        @include size(100%, 230px);
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        p.content {
+          position: absolute;
+          bottom: 0.1%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: #1c1d1f;
+          font-size: 16px;
+          text-align: center;
+          text-transform: none;
+          letter-spacing: 0;
+          font-family: "Montserrat";
+          font-weight: 500;
+          opacity: 0;
+          transition: all 0.5s;
+
+          &.active {
+            opacity: 1;
+            // left: 50%;
+          }
+        }
+
+        .img {
+          position: absolute;
+          width: 100%;
+          height: 194px;
+          opacity: 0;
+          transition: all 0.5s;
+          // transform: translateX(-1%);
+          left: -10%;
+          &.active {
+            // transform: translateX(0);
+            left: 0;
+            opacity: 1;
+          }
+        }
+      }
+    }
+    .subscribe {
+      text-align: center;
+      width: 100%;
+      height: 340px;
+      border-top: 5px solid $main_color;
+      background-color: #fff;
+      box-shadow: 2px 5px 40px 0 rgba(0, 0, 0, 0.08);
+      padding: 35px;
+      form {
+        display: flex;
+        flex-direction: column;
+        .input-group {
+          width: 100%;
+          position: relative;
+          transition: all 0.3s;
+          label {
+            position: absolute;
+            top: 42%;
+            left: 5px;
+            padding: 0 5px;
+            color: $main_color2;
+            pointer-events: none;
+            font-size: 12px;
+            transform: translateY(-50%);
+          }
+          input {
+            width: 100%;
+            height: 45px;
+            border: 1px solid #d9dbde;
+            padding: 0 10px;
+            border-radius: 5px;
+            background: transparent;
+            margin-bottom: 12px;
+            &:focus ~ label,
+            &:valid ~ label {
+              top: 0;
+              background: white;
+            }
+            // &:valid ~ label {
+            //   top: 0;
+            // }
+          }
+        }
+        button {
+          cursor: pointer;
+          height: 45px;
+          outline: none;
+          border: none;
+          border-radius: 5px;
+          color: white;
+          background: #d87b4d;
+          &:hover {
+            background: $main_color1;
+          }
+        }
+      }
+
+      p {
+        font-size: 13px;
+        line-height: 1.85em;
+        text-align: center;
+        margin-bottom: 16px;
+        font-family: "Montserrat";
+      }
+      h3 {
+        margin-top: 20px;
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: 700;
+        text-transform: none;
+        letter-spacing: 0;
+        margin-bottom: 8px !important;
+        span {
+          font-family: "Montserrat";
+          color: #1c1d1f;
+        }
+      }
+      .imgInbox {
+        width: 100%;
+        height: 40px;
         @include centerlize(center);
-
-        // a {
-        //   display: inline-block;
-        //   position: relative;
-        //   color: #1c1d1f;
-        //   text-align: center;
-        //   height: 27px;
-
-        //   span {
-        //     font-size: 11px;
-        //     font-family: "Montserrat";
-        //     text-transform: uppercase;
-        //     letter-spacing: 1px;
-        //   }
-        //   svg {
-        //     @include size(20px, 20px);
-        //     font-size: 22px;
-        //     line-height: 24px;
-        //     width: auto;
-        //     max-width: 100%;
-        //     overflow: hidden;
-        //     transform: translateX(0px);
-        //     transition: all 0.4s ease-out;
-        //   }
-        // }
+        img {
+          width: 80%;
+          object-fit: contain;
+          height: 100%;
+        }
+      }
+    }
+    @include size(25%, auto);
+    .div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      .profile {
+        margin-top: 30px;
+        @include size(150px, 150px);
+        .profile__img {
+          @include size(100%, 100%);
+        }
+      }
+      .content {
+        margin-top: 20px;
+        font-size: 14px;
+        line-height: 1.85em;
+        width: 85%;
+        font-weight: 200;
+        color: #747679;
+        font-family: "Open Sans", "Helvetica Neue";
+        .signature {
+          font-size: 32px;
+          line-height: 1em;
+          font-family: "Sacramento", cursive;
+          color: #1c1d1f;
+          padding-top: 23px;
+          display: block;
+        }
+      }
+      .border_bottom {
+        width: 100%;
+        margin-top: 40px;
+        border-bottom: 1px dashed #bbc4c7;
       }
       .share-button {
         margin-top: 30px;
@@ -167,104 +315,6 @@ main {
                 @include centerlize(center);
                 color: white;
               }
-            }
-          }
-        }
-      }
-      .shareBox {
-        @include size(200px, 100%);
-        .social-icons {
-          @include size(100%, 100%);
-          ul {
-            display: flex;
-            justify-content: right;
-            align-items: center;
-            @include size(100%, 100%);
-            li {
-              margin: 0 3px;
-              background-color: #d0d0d2;
-              font-size: 14px;
-              @include size(29px, 29px);
-              border-radius: 50%;
-              @include centerlize(center);
-              a {
-                @include size(29px, 29px);
-                @include centerlize(center);
-                border-radius: 50%;
-                &:hover {
-                  background: $main_color1;
-                  border-radius: 50%;
-                }
-
-                svg {
-                  color: #fff;
-                  @include size(15px, 15px);
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .main__right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    @include size(25%, 100%);
-    text-align: center;
-    .profile {
-      margin-top: 30px;
-      @include size(150px, 150px);
-      .profile__img {
-        @include size(100%, 100%);
-      }
-    }
-    .content {
-      margin-top: 20px;
-      font-size: 14px;
-      line-height: 1.85em;
-      width: 85%;
-      font-weight: 200;
-      color: #747679;
-      font-family: "Open Sans", "Helvetica Neue";
-      .signature {
-        font-size: 32px;
-        line-height: 1em;
-        font-family: "Sacramento", cursive;
-        color: #1c1d1f;
-        padding-top: 23px;
-        display: block;
-      }
-    }
-    .border_bottom {
-      width: 100%;
-      margin-top: 40px;
-      border-bottom: 1px dashed #bbc4c7;
-    }
-    .share-button {
-      margin-top: 30px;
-      @include size(100%, 40px);
-      .social-icons {
-        @include size(100%, 100%);
-        ul {
-          height: 100%;
-          @include centerlize(center);
-          li {
-            background: #363438;
-            @include centerlize(center);
-            @include size(35px, 35px);
-            border-radius: 50%;
-            margin: 0 10px;
-            transition: all 0.1s;
-
-            &:hover a {
-              color: $main_color;
-            }
-            a {
-              @include centerlize(center);
-              color: white;
             }
           }
         }

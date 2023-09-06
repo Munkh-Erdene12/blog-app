@@ -104,3 +104,233 @@ h3.info-title {
   justify-content: space-between;
   align-items: center;
 }
+figure {
+  overflow: hidden;
+  transition: all 0.3s;
+  cursor: pointer;
+  .banner {
+    margin-top: 45px;
+    width: 100%;
+    height: 245px;
+    object-fit: cover;
+    overflow: hidden;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+.save {
+  margin-top: 30px;
+  @include size(100%, 200px);
+  .favorite {
+    margin-bottom: 20px;
+    @include centerlize(space-left);
+    .img__child {
+      width: 30%;
+      height: 93px;
+      margin-right: 14px;
+      border-radius: 50%;
+      .img_1 {
+        @include size(100%, 100%);
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+    h3 {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 1.3em;
+      display: block;
+      margin-bottom: 2px;
+      display: flex;
+      flex-direction: column;
+      a {
+        color: #1c1d1f;
+      }
+      span {
+        text-align: left;
+        margin-top: 5px;
+        font-weight: 300;
+        color: #888c8e;
+        font-size: 11px;
+        font-family: "Montserrat";
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}
+.action {
+  @include size(100%, 60px);
+  border-top: 1px dashed #bbc4c7;
+  border-bottom: 1px dashed #bbc4c7;
+  @include centerlize(space-between);
+  .meta {
+    @include size(200px, 100%);
+    @include centerlize(left);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: unset;
+    justify-content: center;
+    .post-like,
+    .post-view {
+      margin: 0 8px;
+      font-size: 11px;
+      font-family: "Montserrat";
+      text-transform: uppercase;
+      color: #888c8e;
+      letter-spacing: 1px;
+    }
+    .post-like {
+      height: 100%;
+      @include centerlize(center);
+
+      .item-like {
+        height: 100%;
+
+        text-transform: uppercase;
+        @include centerlize(center);
+        a {
+          svg {
+            margin: 0 10px;
+            width: 15px;
+            height: 15px;
+            color: #888c8e;
+            &:hover {
+              color: $main_color;
+            }
+          }
+        }
+        span {
+          text-transform: uppercase;
+        }
+      }
+    }
+    .post-view {
+      text-transform: uppercase;
+    }
+  }
+  .post-more {
+    @include size(9%, 60px);
+    @include centerlize(center);
+    transition: all 0.5s;
+    cursor: pointer;
+    &:hover {
+      svg {
+        display: none;
+      }
+
+      a {
+        width: 100%;
+      }
+    }
+    svg {
+      @include size(25px, 25px);
+    }
+    a {
+      transition: all 0.3s;
+      width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      transition: width 0.2s;
+      font-size: 11px;
+      font-family: "Montserrat";
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #1c1d1f;
+    }
+  }
+  .share-button {
+    margin-top: 30px;
+    @include size(100%, 40px);
+    .social-icons {
+      @include size(100%, 100%);
+      ul {
+        height: 100%;
+        @include centerlize(center);
+        li {
+          background: #363438;
+          @include centerlize(center);
+          @include size(35px, 35px);
+          border-radius: 50%;
+          margin: 0 10px;
+          transition: all 0.1s;
+
+          &:hover a {
+            color: $main_color;
+          }
+          a {
+            @include centerlize(center);
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  .shareBox {
+    @include size(200px, 100%);
+    .social-icons {
+      @include size(100%, 100%);
+      ul {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        @include size(100%, 100%);
+        li {
+          margin: 0 3px;
+          background-color: #d0d0d2;
+          font-size: 14px;
+          @include size(29px, 29px);
+          border-radius: 50%;
+          @include centerlize(center);
+          a {
+            @include size(29px, 29px);
+            @include centerlize(center);
+            border-radius: 50%;
+            &:hover {
+              background: $main_color1;
+              border-radius: 50%;
+            }
+
+            svg {
+              color: #fff;
+              @include size(15px, 15px);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.post-more__child {
+  @include size(25%, 60px);
+  @include centerlize(center);
+  transition: all 0.5s;
+  cursor: pointer;
+  &:hover {
+    svg {
+      display: none;
+    }
+
+    a {
+      width: 100%;
+    }
+  }
+  svg {
+    @include size(25px, 25px);
+  }
+  a {
+    transition: all 0.3s;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: width 0.2s;
+    font-size: 11px;
+    font-family: "Montserrat";
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #1c1d1f;
+  }
+}

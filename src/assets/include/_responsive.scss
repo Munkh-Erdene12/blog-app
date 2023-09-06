@@ -1,0 +1,30 @@
+@media (max-width: 968px) {
+  header {
+    .menu {
+      max-width: 23%;
+      .menu-item {
+        svg {
+          width: 10px;
+          height: 10px;
+        }
+        a {
+          font-size: 8px;
+        }
+      }
+    }
+    .navigation {
+      li {
+        a {
+          font-size: 8px;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 767px) {
+  header {
+    .navigation {
+      display: none;
+    }
+  }
+}

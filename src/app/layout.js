@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import Head from "next/head";
 import Header from "@/components/Header";
 import "@/assets/css/style.scss";
+import "@/app/gloabal.css";
+import MainStore from "@/context/Main";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,8 +20,10 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/vercel.svg" />
       </Head>
       <body className={inter.className}>
-        <Header />
-        {children}
+        <MainStore>
+          <Header />
+          {children}
+        </MainStore>
       </body>
     </html>
   );
