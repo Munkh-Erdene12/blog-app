@@ -1,0 +1,115 @@
+form {
+  @include size(100%, 90vh);
+  display: flex;
+  justify-content: space-between;
+  .left,
+  .right {
+    width: 50%;
+    height: 490px;
+  }
+  .left {
+    .img {
+      @include size(100%, 100%);
+      object-fit: contain;
+    }
+  }
+  .right {
+    padding: 30px;
+    margin-left: 15px;
+    div {
+      width: 65%;
+      .title {
+        font-size: 28px;
+        font-family: "Roboto", sans-serif;
+        font-weight: 500;
+        line-height: 1.2;
+        margin-bottom: 20px;
+      }
+      .decg {
+        color: #b3b3b3;
+        font-weight: 300;
+      }
+      .btn {
+        color: #fff;
+        background-color: #6c63ff;
+        border-color: #6c63ff;
+        width: 90%;
+        height: 50px;
+        outline: none;
+        border: none;
+        margin-top: 20px;
+        cursor: pointer;
+        border-radius: 12px;
+        transition: all 0.3s;
+        &:hover {
+          background: #483dff;
+        }
+      }
+      .register {
+        margin-top: 18px;
+        p {
+          font-size: 15px;
+          a {
+            color: #6e6e6e;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+      .inputbox {
+        position: relative;
+        margin: 10px 0;
+        width: 90%;
+        margin-right: 0 !important;
+        border-bottom: 1px solid #e6edf1;
+        margin-bottom: 0;
+        padding: 19px 19px;
+        label {
+          position: absolute;
+          top: 50%;
+          left: 5px;
+          transform: translateY(-50%);
+          color: #b3b3b3;
+          font-size: 1em;
+          pointer-events: none;
+          transition: 0.5s;
+        }
+        input {
+          width: 100%;
+          text-transform: lowercase;
+          background: transparent;
+          border: none;
+          &:focus ~ label,
+          &:valid ~ label {
+            top: 5px;
+          }
+        }
+      }
+      .forget {
+        width: 90%;
+        display: flex;
+        margin-top: 20px;
+        justify-content: space-between;
+        color: #888;
+        font-size: 15px;
+        a {
+          color: #888;
+          &:hover {
+            text-decoration: underline;
+            transition: all 0.2s;
+          }
+        }
+        span {
+          input {
+            margin: 0 5px;
+          }
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

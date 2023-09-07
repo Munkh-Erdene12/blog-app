@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import "@/assets/css/style.scss";
 import "@/app/gloabal.css";
 import MainStore from "@/context/Main";
-
+import { UserStore } from "@/context/User";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -20,10 +20,10 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/vercel.svg" />
       </Head>
       <body className={inter.className}>
-        <MainStore>
+        <UserStore>
           <Header />
           {children}
-        </MainStore>
+        </UserStore>
       </body>
     </html>
   );

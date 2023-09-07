@@ -4,7 +4,7 @@ export default function Logo() {
   return (
     <div className="">
       <Image
-        src="logoipsum-289.svg"
+        src="logo.svg"
         alt="logo"
         style={{ width: "100%", height: "100%", objectFit: "cover" }}
         width={500}

@@ -1,11 +1,13 @@
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FaFacebookF, FaDiscord, FaPinterestP, FaFigma } from "react-icons/fa";
 import { AiOutlineInstagram } from "react-icons/ai";
 
 import MenuItem from "./MenuItem";
 
 export default function Menu() {
+  const path = usePathname();
   return (
     <div className="menu">
       <MenuItem icon={<FaFacebookF />} />
@@ -14,7 +16,12 @@ export default function Menu() {
       <MenuItem icon={<FaPinterestP />} />
       <MenuItem icon={<FaFigma />} />
       <MenuItem>
-        <Link href="/login">Login</Link>/<Link href="register">Register</Link>
+        {path !== "/auth/login" && path !== "/auth/register" && (
+          <span>
+            <Link href="/auth/login">Login</Link> /{" "}
+            <Link href="/auth/register">Register</Link>
+          </span>
+        )}
       </MenuItem>
     </div>
   );

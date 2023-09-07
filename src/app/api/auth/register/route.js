@@ -1,20 +1,16 @@
-import { NextResponse, NextRequest } from "next/server";
-import UserSchema from "@/app/database/models/users";
-export async function POST(req) {
-  const data = await req.json();
-  const registerUser = await UserSchema.create(data);
-  const refreshToken = await registerUser.refreshToken();
-  const token = await registerUser.jsonToken();
-  // Header-г тодорхойлох
-  //   const headers = {
-  //     "Content-Type": "application/json", // Жагсаалтын төрөл
-  //     "Custom-Header": "Custom-Value", // Өөрийн header-г тодорхойлох
-  //   };
-
+import { NextResponse } from "next/server";
+import UserSchema from "../../../database/models/users";
+export async function POST(request) {
+  const body = await request.json();
+  console.log(body);
+  const user = await UserSchema.create(body);
+  const token = await user.jsonToken();
+  const refreshToken = await user.refreshToken();
   return NextResponse.json({
     message: "success",
-    refreshToken,
+    expiresIn: 3600,
+    user,
     token,
-    registerUser,
+    refreshToken,
   });
 }

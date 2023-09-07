@@ -1,13 +1,11 @@
-import { NextResponse, NextRequest } from "next/server";
-import mongoSanitize from "express-mongo-sanitize";
-import helmet from "helmet";
+import { NextRequest } from "next/server";
 
-export async function middleware(req, res, next) {
-  const body = await req.json();
-  mongoSanitize.sanitize(body);
-  mongoSanitize.sanitize(NextRequest.query);
-  helmet()(req, res, next);
+export function middleware(request, response) {
+  console.log("request " + request.nextUrl.pathname);
+  const cookie = request.cookies.get("token")?.value;
+  //   console.log("cookie: " + cookie);
+  //   if (request.nextUrl.pathname.startsWith("/")) {
+  //     console.log("first path");
+  //   }
+  //   console.log("object");
 }
-export const config = {
-  matcher: "/api/:function*",
-};
