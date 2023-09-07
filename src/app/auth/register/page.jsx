@@ -3,9 +3,16 @@ import React from "react";
 import Image from "next/image";
 import unique from "unique";
 import Input from "@/components/Input";
-// import { userContext } from "../../../context/User";
-export default function Contact() {
-  // const ctx = React.useContext(userContext);
+import { userContext } from "../../../context/User";
+export default function Register() {
+  const [state, setState] = React.useState({
+    email: "",
+    firstname: "",
+    lastname: "",
+    password: "",
+    confirmpassword: "",
+  });
+  const ctx = React.useContext(userContext);
   return (
     <form action="">
       <div className="left">
