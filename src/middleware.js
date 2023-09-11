@@ -1,11 +1,24 @@
-import { NextRequest } from "next/server";
-
-export function middleware(request, response) {
-  console.log("request " + request.nextUrl.pathname);
-  const cookie = request.cookies.get("token")?.value;
-  //   console.log("cookie: " + cookie);
-  //   if (request.nextUrl.pathname.startsWith("/")) {
-  //     console.log("first path");
+import { verifyAuth } from "./app/lib/VerifyAuth";
+import { NextResponse } from "next/server";
+export async function middleware(request, response) {
+  const token = request.cookies.get("token")?.value || "";
+  // const verifiedToken =
+  //   token &&
+  //   (await verifyAuth(token).catch((err) => {
+  //     console.log(err);
+  //   }));
+  // if (request.nextUrl.pathname.startsWith("/admin")) {
+  //   if (
+  //     verifiedToken.role === "user" ||
+  //     verifiedToken === "" ||
+  //     verifiedToken.role === "publisher" ||
+  //     token === ""
+  //   ) {
+  //     return NextResponse.redirect(new URL("/not-found", request.nextUrl));
   //   }
-  //   console.log("object");
+  // } else if (request.nextUrl.pathname.startsWith("/publisher")) {
+  //   if (verifiedToken.role === "user" || verifiedToken === "" || token === "") {
+  //     return NextResponse.redirect(new URL("/not-found", request.nextUrl));
+  //   }
+  // }
 }

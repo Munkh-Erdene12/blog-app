@@ -1,0 +1,26 @@
+[
+  {
+    "categoryID": 1,
+    "name": "LifeStyle",
+    "createdAt": "2023-09-08T14:19:34.000Z",
+    "updatedAt": "2023-09-08T14:19:34.000Z"
+  },
+  {
+    "categoryID": 2,
+    "name": "Nature",
+    "createdAt": "2023-09-08T14:19:40.000Z",
+    "updatedAt": "2023-09-08T14:19:40.000Z"
+  },
+  {
+    "categoryID": 3,
+    "name": "Music",
+    "createdAt": "2023-09-08T14:19:43.000Z",
+    "updatedAt": "2023-09-08T14:19:43.000Z"
+  },
+  {
+    "categoryID": 4,
+    "name": "Travel",
+    "createdAt": "2023-09-08T14:20:25.000Z",
+    "updatedAt": "2023-09-08T14:20:25.000Z"
+  }
+]

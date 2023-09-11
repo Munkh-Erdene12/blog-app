@@ -4,6 +4,35 @@ main {
   justify-content: space-between;
   padding: 20px;
   .main__left {
+    .page {
+      @include size(100%, 50px);
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .paginate {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        border: 1px solid #d0d0d2;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: 300;
+        align-items: center;
+        margin: 0 10px;
+        cursor: pointer;
+        color: #28292a;
+        &.active {
+          background: $main_color;
+          color: white;
+        }
+        &:not(.active):hover {
+          background: $main_color;
+          color: white;
+        }
+      }
+    }
     text-align: center;
     @include size(70%, 100%);
     .main-content {

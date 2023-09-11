@@ -1,9 +1,11 @@
 import { DataTypes } from "sequelize";
+import { v4 as uuidv4 } from "uuid";
 import unique from "unique";
-import crypto from "crypto";
-import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import { sequelize } from "@/app/lib/ConnectDB";
+import { JWK, JWT, SignJWT } from "jose";
+import { nanoid } from "nanoid";
+import { sequelize } from "../../lib/ConnectDB";
+import { getJwtSecretKey } from "../../lib/VerifyAuth";
 const User = sequelize.define(
   "User",
   {
@@ -49,34 +51,38 @@ const User = sequelize.define(
     },
   }
 );
-User.prototype.jsonToken = function () {
-  const token = jwt.sign(
-    { id: this.id, role: this.role },
-    // process.env.SECRET_KEY,
-    "$$$JSONWEBTOKEN__SECRET_KEY$$$",
-    {
-      expiresIn: "1h",
-
-      // process.env.EXPIRES,
-    }
-  );
+User.prototype.jsonToken = async function () {
+  const secure = await getJwtSecretKey();
+  const token = await new SignJWT({ role: this.role, id: this.id })
+    .setProtectedHeader({ alg: "HS256" })
+    .setJti(nanoid())
+    .setIssuedAt()
+    .setExpirationTime("1h")
+    .sign(new TextEncoder().encode(secure));
   return token;
 };
 User.prototype.refreshToken = function (token) {
+  const privateKey = JWK.asKey({
+    kty: "oct",
+    k: "$$$REFRESH_TOKEN$$$", // Refresh нууц түлхүүр оруулна уу
+  });
+
   if (token) {
-    const decoded = jwt.verify(token, "$$$REFRESH_SECRET__REFRESH_SECRET$$$");
-    const refreshNewToken = jwt.sign(
-      { id: this.id, role: this.role },
-      "$$$REFRESH_SECRET__REFRESH_SECRET$$$",
-      { expiresIn: "1y" }
-    );
-    return refreshNewToken;
+    try {
+      const decoded = JWT.verify(token, privateKey);
+      const refreshNewToken = JWT.sign(
+        { id: this.id, role: this.role },
+        privateKey,
+        { expiresIn: "1y" }
+      );
+      return refreshNewToken;
+    } catch (err) {
+      return null;
+    }
   } else {
-    const accessToken = jwt.sign(
-      { id: this.id, role: this.role },
-      "$$$REFRESH_SECRET__REFRESH_SECRET$$$",
-      { expiresIn: "1y" }
-    );
+    const accessToken = JWT.sign({ id: this.id, role: this.role }, privateKey, {
+      expiresIn: "1y",
+    });
     return accessToken;
   }
 };
@@ -84,13 +90,8 @@ User.prototype.checkPassword = function (enteredPassword) {
   return bcrypt.compare(enteredPassword, this.password);
 };
 User.prototype.generatePasswordChangeToken = function () {
-  const resetToken = crypto.randomBytes(20).toString("hex");
-
-  this.resetPasswordToken = crypto
-    .createHash("sha256")
-    .update(resetToken)
-    .digest("hex");
-
+  const resetToken = uuidv4();
+  this.resetPasswordToken = resetToken;
   this.resetPasswordExpire = Date.now() + 10 * 60 * 1000;
 
   return resetToken;

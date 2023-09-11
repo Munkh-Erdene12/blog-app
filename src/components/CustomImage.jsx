@@ -9,6 +9,9 @@ export default function CustomImage(props) {
       className={props.name}
       width={200}
       height={200}
-    />
+      style={props.style}
+    >
+      {props.children}
+    </Image>
   );
 }

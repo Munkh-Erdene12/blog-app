@@ -29,6 +29,7 @@ export const UserStore = (props) => {
       expireDate,
     });
   };
+  const autoRenewTokenAfterMillisec = (ms) => {};
   const loginUser = (email, password) => {
     setState({ ...state, logginIn: true });
     const data = {
@@ -39,7 +40,8 @@ export const UserStore = (props) => {
       .get("/api/auth/login", data)
       .then((response) => {
         const token = response.data.token;
-        const id = response.data.id;
+        const id = response.data.user.id;
+        console.log(id);
         const refreshToken = response.data.refreshToken;
 
         const expiresIn = response.data.expiresIn;
@@ -70,7 +72,7 @@ export const UserStore = (props) => {
       .post("/api/auth/register", data)
       .then((response) => {
         const token = response.data.token;
-        const id = response.data.id;
+        const id = response.data.user.id;
         const refreshToken = response.data.refreshToken;
 
         const expiresIn = response.data.expiresIn;

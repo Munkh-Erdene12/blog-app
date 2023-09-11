@@ -16,6 +16,14 @@ export default function Menu() {
       <MenuItem icon={<FaPinterestP />} />
       <MenuItem icon={<FaFigma />} />
       <MenuItem>
+        {/* <div
+          style={{
+            width: "35px",
+            height: "35px",
+            background: "red",
+            borderRadius: "50%",
+          }}
+        ></div> */}
         {path !== "/auth/login" && path !== "/auth/register" && (
           <span>
             <Link href="/auth/login">Login</Link> /{" "}

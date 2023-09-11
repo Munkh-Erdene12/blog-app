@@ -1,0 +1,89 @@
+.publisher {
+  width: 100%;
+  height: 60px;
+  color: white;
+  background: #101112;
+  border-bottom: 1px solid #3f434a;
+  @include centerlize(space-between);
+  padding: 20px;
+  .cm {
+    @include centerlize(space-between);
+    width: 170px;
+    .help {
+      &:hover {
+        p {
+        }
+      }
+      svg {
+        @include size(25px, 25px);
+        color: #bbc0ca;
+      }
+      p {
+        position: absolute;
+        right: 8%;
+        margin-top: 0.5%;
+        border: 1px solid #bbc0ca;
+        padding: 10px;
+        font-size: 12px;
+        display: none;
+      }
+    }
+    div.status {
+      padding: 0 0px 0 5px;
+      border-left: 1px solid #3f434a;
+      svg {
+        color: #292c30;
+        @include size(25px, 25px);
+      }
+    }
+    .profile {
+      width: 55px;
+      height: 50px;
+      border-radius: 50%;
+      .img {
+        @include size(100%, 100%);
+      }
+    }
+    .down {
+      svg {
+        @include size(25px, 25px);
+        color: #292c30;
+      }
+    }
+  }
+}
+.main_1 {
+  @include size(100%, 100%);
+  display: flex;
+  .left {
+    @include size(30%, 100%);
+    border-right: 1px solid #3f434a;
+    ul {
+      li {
+        cursor: pointer;
+        margin: auto;
+        @include size(90%, 50px);
+        padding-left: 20px;
+        border-radius: 8px;
+        &:first-child {
+          &:hover {
+            background: #101112;
+          }
+        }
+        &:nth-child(2) {
+          margin-top: 20px;
+        }
+        &:hover {
+          background: rgba(108, 115, 128, 0.4);
+        }
+      }
+    }
+  }
+  .right {
+    @include size(70%, 100%);
+    .write {
+      @include size(30%, 100%);
+      border-right: 1px solid #3f434a;
+    }
+  }
+}

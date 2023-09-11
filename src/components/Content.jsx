@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 export default function Content(props) {
   return (
-    <div className="item-content">
+    <div className="item-content" onClick={props.onClick}>
       <figure>
         <Image
           src={props.img}

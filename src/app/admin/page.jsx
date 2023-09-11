@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { MainContext } from "@/context/Main";
+import { MainContext } from "../../context/Main";
 export default function Page() {
   const ctx = React.useContext(MainContext);
   return (

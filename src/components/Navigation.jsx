@@ -7,7 +7,7 @@ import TredingBanner from "./TredingBanner";
 const nav = [
   { title: "home", path: "/" },
   { title: "trending", path: "/trending" },
-  { title: "features", path: "/features" },
+  { title: "content", path: "/content" },
   { title: "shop", path: "/shop" },
   { title: "about me", path: "/about" },
   { title: "contact", path: "/contact" },
@@ -42,10 +42,10 @@ export default function Navigation() {
               </div>
               <div className="right">
                 <div className="right__child">
-                  <TredingBanner />
-                  <TredingBanner />
-                  <TredingBanner />
-                  <TredingBanner />
+                  <TredingBanner img="https://picsum.photos/200/300?random=1" />
+                  <TredingBanner img="https://picsum.photos/200/300?random=2" />
+                  <TredingBanner img="https://picsum.photos/200/300?random=3" />
+                  <TredingBanner img="https://picsum.photos/200/300?random=4" />
                 </div>
               </div>
             </div>

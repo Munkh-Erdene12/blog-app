@@ -40,5 +40,10 @@
       <input type="text" required />
       <label for="">Email</label>
     </div>
+    <script>
+      const encoder = new TextEncoder();
+      const view = encoder.encode("12");
+      console.log(view);
+    </script>
   </body>
 </html>

@@ -1,12 +1,13 @@
 import React from "react";
 import { Inter } from "next/font/google";
 import Head from "next/head";
-import Header from "@/components/Header";
-import "@/assets/css/style.scss";
-import "@/app/gloabal.css";
-import MainStore from "@/context/Main";
-import { UserStore } from "@/context/User";
+import Header from "../components/Header";
+import "../assets/css/style.scss";
+import "../app/gloabal.css";
+import MainStore from "../context/Main";
+import { UserStore } from "../context/User";
 const inter = Inter({ subsets: ["latin"] });
+import Footer from "../components/Footer";
 
 export const metadata = {
   title: "Home",

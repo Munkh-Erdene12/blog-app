@@ -1,10 +1,12 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Content from "@/components/Content";
+import Content from "../components/Content";
+import Footer from "../components/Footer";
 import {
   AiOutlineArrowLeft,
   AiOutlineArrowRight,
@@ -20,23 +22,27 @@ import {
 } from "react-icons/bs";
 import { FaFacebookF, FaInstagram, FaPinterestP } from "react-icons/fa";
 import { FiArrowRight } from "react-icons/fi";
-import ShareIcon from "@/components/ShareIcon";
-import ShareBox from "@/components/ShareBox";
-import SmallTitle from "@/components/SmallTitle";
-import LargeTitle from "@/components/LargeTitle";
-import InfoTitle from "@/components/InfoTitle";
-import CustomImage from "@/components/CustomImage";
-import Content__1 from "@/components/Content__1";
+import ShareIcon from "../components/ShareIcon";
+import ShareBox from "../components/ShareBox";
+import SmallTitle from "../components/SmallTitle";
+import LargeTitle from "../components/LargeTitle";
+import InfoTitle from "../components/InfoTitle";
+import CustomImage from "../components/CustomImage";
+import Content__1 from "../components/Content__1";
 import Main_child_item from "../components/Main_child_item";
-import Border from "@/components/Border";
+import Border from "../components/Border";
 const trendingBannerData = [
   { img: "/1-1.jpeg", text: "Summer stripes" },
   { img: "/2-2.jpeg", text: "Favorite sneakers" },
   { img: "/3-3.jpeg", text: "Scandinavian" },
 ];
 
+import tredingData from "../app/database/treding";
 export default function Page() {
-  const [submitEmail, setSubmitEmail] = React.useState("muugii@gmail.com");
+  const params = useParams();
+  const router = useRouter();
+  const [page, setPage] = React.useState(1);
+  const [submitEmail, setSubmitEmail] = React.useState("");
   const [currentSlide, setCurrentSlide] = React.useState(0);
   const handlePrevSlide = () => {
     setCurrentSlide((prev) =>
@@ -75,7 +81,7 @@ export default function Page() {
     }
   };
   return (
-    <React.Fragment>
+    <div style={{ position: "relative", height: "730vh" }}>
       {setSubmitEmail.length === 0 ? (
         <ToastContainer
           position="top-center"
@@ -106,7 +112,6 @@ export default function Page() {
           <ToastContainer />
         </>
       )}
-
       <div className="wrapper">
         <Image
           src="/hero.jpeg"
@@ -118,24 +123,16 @@ export default function Page() {
         <p className="img__children">Hello...</p>
         <div className="item-container">
           <AiOutlineArrowLeft />
-          <Content
-            img="/1.jpg"
-            link="#"
-            value="Talking time"
-            date="OCT 2, 2023"
-          />
-          <Content
-            img="/2.jpg"
-            link="#"
-            value="Talking time"
-            date="OCT 2, 2023"
-          />
-          <Content
-            img="/3.jpg"
-            link="#"
-            value="Talking time"
-            date="OCT 2, 2023"
-          />
+          {tredingData.map((el) => (
+            <Content
+              key={el.id}
+              img={el.img}
+              link="#"
+              value={el.title}
+              date={el.date}
+              onClick={() => router.push(`/detail?id=${el.id}`)}
+            />
+          ))}
           <AiOutlineArrowRight />
         </div>
       </div>
@@ -262,6 +259,32 @@ export default function Page() {
                 LargeTitle="PORTUGAL’S SUNSET"
               />
             </div>
+            <div className="page">
+              <div
+                className={page === 1 ? "active paginate" : "paginate"}
+                onClick={() => setPage(1)}
+              >
+                1
+              </div>
+              <div
+                className={page === 2 ? "active paginate" : "paginate"}
+                onClick={() => setPage(2)}
+              >
+                2
+              </div>
+              <div
+                className={page === 3 ? "active paginate" : "paginate"}
+                onClick={() => setPage(3)}
+              >
+                3
+              </div>
+              <div
+                className={page === 4 ? "active paginate" : "paginate"}
+                onClick={() => setPage(4)}
+              >
+                ...
+              </div>
+            </div>
           </div>
           <div className="main__right">
             <InfoTitle value="About Me" />
@@ -298,7 +321,7 @@ export default function Page() {
               <p>
                 Get the latest fashion trends, the best in travel and my life.
               </p>
-              <form action="">
+              <form action="" style={{ height: "100px" }}>
                 <div className="input-group">
                   <input type="text" />
                   <label htmlFor="">Enter your email</label>
@@ -371,6 +394,7 @@ export default function Page() {
           </div>
         </main>
       </div>
-    </React.Fragment>
+      <Footer />
+    </div>
   );
 }
